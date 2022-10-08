@@ -2,6 +2,7 @@
 
 const { ConstructionOutlined } = require("@mui/icons-material");
 const { getDisplayName } = require("@mui/utils");
+const { Console } = require("console");
 const { getRandomValues } = require("crypto");
 
 /* EXERCISE A
@@ -203,9 +204,14 @@ Ex.: onlyLetters("I have 4 dogs") => returns "I have dogs"
 
 */
 
-console.log("\nxxxx----------------------EXERCISE 5----------------------");
+console.log("\n----------------------EXERCISE 5----------------------xx");
 
-function onlyLetters(str) {}
+function onlyLetters(str) {
+  str = str.replace(/[0-9]/g, "");
+  return str;
+}
+
+console.log(onlyLetters("I have 4 dogs"));
 
 /* EXERCISE 6
 
@@ -228,13 +234,16 @@ Write a function called whatDayIsIt that should return the current day of the we
 
 */
 
-console.log("\nxxxx----------------------EXERCISE 7----------------------");
+console.log("\n----------------------EXERCISE 7----------------------");
 
-// function whatDayIsIt() {
-//   Date.getDay();
-// }
+function whatDayIsIt() {
+  var days = ["Sun", "Mon", "Tues", "Wed", "Thrus", "Fri", "Sat"];
+  let currentDate = new Date();
+  let dayNumber = currentDate.getDay();
+  return days[dayNumber];
+}
 
-// whatDayIsIt();
+console.log("what day is it:", whatDayIsIt());
 
 /* EXERCISE 8
 
@@ -627,7 +636,17 @@ Write a function called sumAllTheYears which returns the sum of all the years in
 
 */
 
-console.log("\nxxxx----------------------EXERCISE 17----------------------");
+console.log("\n----------------------EXERCISE 17----------------------");
+
+function sumAllTheYears() {
+  let sum = 0;
+  for (let movie of movies) {
+    sum += movie.Year;
+  }
+  return sum;
+}
+
+console.log("Sum of years of all movies: ", sumAllTheYears());
 
 /* EXERCISE 18
 
@@ -635,7 +654,20 @@ Write a function called searchByTitle which receives a string as a parameter and
 
 */
 
-console.log("\nxxxx----------------------EXERCISE 18----------------------");
+console.log("\n----------------------EXERCISE 18----------------------");
+
+function searchByTitle(str) {
+  let arr = [];
+  for (let movie of movies) {
+    let title = movie.Title;
+    if (title.includes(str)) {
+      arr.push(movie);
+    }
+  }
+  return arr;
+}
+
+console.log(searchByTitle("Avengers"));
 
 /* EXERCISE 19
 
@@ -647,11 +679,10 @@ and another array unmatch with all the remaining ones.
 
 */
 
-console.log("\nxxxx----------------------EXERCISE 19----------------------");
+console.log("\n----------------------EXERCISE 19----------------------?????");
 
 // function searchAndDivide(str){
 //     let match = [];
-//     let newObj =
 // }
 
 /* EXERCISE 20
